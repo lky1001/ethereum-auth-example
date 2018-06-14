@@ -1,0 +1,35 @@
+spring:
+  sserver:
+    port: 8080
+  datasource:
+      name: datasource
+      initialize: false
+      type: org.apache.commons.dbcp2.BasicDataSource
+      url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      driver-class-name: org.h2.Driver
+      validation-query: SELECT 1
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 300000
+      num-tests-per-eviction-run: 6
+      min-evictable-idle-time-millis: -1
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+logging:
+  config: classpath:logback.xml

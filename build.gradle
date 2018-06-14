@@ -18,6 +18,7 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.tistory.lky1001'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -31,13 +32,17 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.springframework.boot:spring-boot-starter-web')
 
+    compile("org.springframework.security.oauth:spring-security-oauth2")
+    compile("org.springframework.security:spring-security-jwt")
+
     compile('com.h2database:h2')
 
+    compile('org.apache.commons:commons-dbcp2:2.1.1')
     compile('ch.qos.logback:logback-classic:1.2.3')
     compile('org.slf4j:slf4j-api:1.7.25')
 
     runtime('org.springframework.boot:spring-boot-devtools')
-    runtime('com.h2database:h2')
+    runtime('com.h2database:h2:1.4.197')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.springframework.security:spring-security-test')
