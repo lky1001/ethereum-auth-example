@@ -1,5 +1,5 @@
 spring:
-  sserver:
+  server:
     port: 8080
   datasource:
       name: datasource
@@ -7,6 +7,8 @@ spring:
       type: org.apache.commons.dbcp2.BasicDataSource
       url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
       driver-class-name: org.h2.Driver
+      username: sa
+      password:
       validation-query: SELECT 1
       test-on-borrow: false
       test-while-idle: true
@@ -18,7 +20,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         show_sql: true
